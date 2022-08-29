@@ -16,4 +16,16 @@ describe('Testes da função HandlerElephants', () => {
   it('Verificando se a média de idade está correta', () => {
     expect(handlerElephants('averageAge')).toBeCloseTo(10.5);
   });
+  it('Verificando se o output location está correto', () => {
+    expect(handlerElephants('location')).toBe('NW');
+  });
+  it('Verificando se o output availability está correto', () => {
+    expect(handlerElephants('availability')).not.toContain('Monday');
+  });
+  it('Verificando output quando não há argumentos', () => {
+    expect(handlerElephants()).toBe(undefined);
+  });
+  it('Verificando output quando o argumento é inválido', () => {
+    expect(handlerElephants('notExist')).toBe(null);
+  });
 });
